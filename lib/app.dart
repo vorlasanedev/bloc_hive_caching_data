@@ -1,4 +1,5 @@
 import 'package:bloc_hive_caching_data/config/theme/app_theme.dart';
+import 'package:bloc_hive_caching_data/features/home/presentation/pages/home_page.dart';
 import 'package:flutter/material.dart';
 
 class App extends StatelessWidget {
@@ -11,7 +12,7 @@ class App extends StatelessWidget {
       theme: AppTheme.lightTheme,
       darkTheme: AppTheme.darkTheme,
       themeMode: ThemeMode.system,
-      home: Scaffold(),
+      home: HomePage(),
     );
   }
 }

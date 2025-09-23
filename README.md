@@ -3,6 +3,11 @@
 A new Flutter project with BLOC HIVE CACHING DATA.
 https://www.youtube.com/watch?v=GHWPfxpkBoM&t=16s
 
+## Vscode extension
+```
+Hive Object Converter
+```
+
 ## Dependencies
 ```
  # Theme
@@ -16,4 +21,17 @@ https://www.youtube.com/watch?v=GHWPfxpkBoM&t=16s
   intl: ^0.20.2
   # log 
   logger: ^2.6.1
+  # HIVE
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+  hive_generator: ^2.0.1
+
+  build_runner: ^2.8.0
   ```
+  ## After Create product_model.dart
+  <img src="ScreenShort/Model_Hive_convert_to_hive.png">
+  if everything is no error with out part 'product_model.g.dart'; has underline red
+    Run hive generateor build_runner on terminal
+    ```
+    flutter pub run build_runner build --delete-conflicting-outputs
+    ```
