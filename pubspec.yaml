@@ -1,0 +1,30 @@
+name: bloc_hive_caching_data
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: ^3.9.2
+
+dependencies:
+  flutter:
+    sdk: flutter
+  # Theme
+  flex_color_scheme: ^8.3.0
+  # show image from internet and keep them in the cache directory 
+  cached_network_image: ^3.4.1
+  # Icon 
+  remixicon: ^1.4.1
+  iconly: ^1.0.1
+  # date time
+  intl: ^0.20.2
+  # log 
+  logger: ^2.6.1
+
+dev_dependencies:
+  flutter_lints: ^5.0.0
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
