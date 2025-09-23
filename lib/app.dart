@@ -1,3 +1,4 @@
+import 'package:bloc_hive_caching_data/config/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
 class App extends StatelessWidget {
@@ -7,6 +8,8 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: AppTheme.lightTheme,
+      darkTheme: AppTheme.darkTheme,
       themeMode: ThemeMode.system,
       home: Scaffold(),
     );
