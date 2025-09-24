@@ -6,28 +6,28 @@ part of 'product_model.dart';
 // TypeAdapterGenerator
 // **************************************************************************
 
-class ProductModelAdapter extends TypeAdapter<ProductModel> {
+class ProductsModelAdapter extends TypeAdapter<ProductsModel> {
   @override
   final int typeId = 0;
 
   @override
-  ProductModel read(BinaryReader reader) {
+  ProductsModel read(BinaryReader reader) {
     final numOfFields = reader.readByte();
     final fields = <int, dynamic>{
       for (int i = 0; i < numOfFields; i++) reader.readByte(): reader.read(),
     };
-    return ProductModel(
+    return ProductsModel(
       success: fields[0] as bool,
       totalProducts: fields[1] as int,
       message: fields[2] as String,
       offset: fields[3] as int,
       limit: fields[4] as int,
-      products: (fields[5] as List).cast<dynamic>(),
+      products: (fields[5] as List).cast<Product>(),
     );
   }
 
   @override
-  void write(BinaryWriter writer, ProductModel obj) {
+  void write(BinaryWriter writer, ProductsModel obj) {
     writer
       ..writeByte(6)
       ..writeByte(0)
@@ -50,7 +50,7 @@ class ProductModelAdapter extends TypeAdapter<ProductModel> {
   @override
   bool operator ==(Object other) =>
       identical(this, other) ||
-      other is ProductModelAdapter &&
+      other is ProductsModelAdapter &&
           runtimeType == other.runtimeType &&
           typeId == other.typeId;
 }

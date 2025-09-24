@@ -1,4 +1,4 @@
-class ProductModelFields {
+class ProductsModelFields {
 	static const int success = 0;
 	static const int totalProducts = 1;
 	static const int message = 2;
