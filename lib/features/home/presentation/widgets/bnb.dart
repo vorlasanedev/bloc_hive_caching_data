@@ -32,9 +32,20 @@ class _BNBState extends State<BNB> {
             padding: const EdgeInsets.only(bottom: 10),
             child: CrystalNavigationBar(
               currentIndex: _SelectedTab.values.indexOf(_selectedTab),
+              height: 10,
+              // indicatorColor: Colors.blue,
               unselectedItemColor: Colors.white70,
+              borderWidth: 2,
+              outlineBorderColor: Colors.white,
               backgroundColor: Colors.black.withValues(alpha: 0.5),
-              borderRadius: 25,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withValues(alpha: 0.1),
+                  blurRadius: 4,
+                  spreadRadius: 4,
+                  offset: Offset(0, 10),
+                ),
+              ],
               onTap: _handleIndexChanged,
               items: [
                 /// Home
@@ -42,9 +53,12 @@ class _BNBState extends State<BNB> {
                   icon: IconlyBold.home,
                   unselectedIcon: IconlyLight.home,
                   selectedColor: Colors.white,
+                  badge: Badge(
+                    label: Text("9+", style: TextStyle(color: Colors.white)),
+                  ),
                 ),
 
-                /// Favorite
+                /// Favourite
                 CrystalNavigationBarItem(
                   icon: IconlyBold.heart,
                   unselectedIcon: IconlyLight.heart,

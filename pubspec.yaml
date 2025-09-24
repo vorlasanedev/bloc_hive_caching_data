@@ -32,6 +32,7 @@ dependencies:
   dio: ^5.9.0
   connectivity_plus: ^7.0.0
   bloc: ^9.0.0
+  # flutter_bloc: ^8.0.0 
   flutter_bloc: ^9.1.1
   equatable: ^2.0.7
   meta: ^1.16.0
@@ -40,7 +41,9 @@ dependencies:
   # when pull screen  and pulldown to refresh page
   liquid_pull_to_refresh: ^3.0.1
   # navigator bar on screen
-  crystal_navigation_bar: ^1.0.4
+  # crystal_navigation_bar: ^1.0.4
+  crystal_navigation_bar: ^1.0.0
+  curved_navigation_bar: ^1.0.6
 
 
 
