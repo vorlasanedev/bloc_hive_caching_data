@@ -45,94 +45,85 @@ class HomeSingeListItem extends StatelessWidget {
             ),
             SizedBox(width: width * .02),
             Expanded(
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(current.name, style: theme.textTheme.titleLarge),
+                      SizedBox(height: 1),
+                      Text(
+                        current.description,
+                        style: theme.textTheme.labelLarge?.copyWith(
+                          color: theme.unselectedWidgetColor,
+                        ),
+                        maxLines: 3,
+                      ),
+                      SizedBox(height: 9),
+                      Padding(
+                        padding: EdgeInsets.only(right: width * .03),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text(
+                              'Created ',
+                              style: theme.textTheme.labelMedium,
+                            ),
+                            Text(createdAt, style: theme.textTheme.labelLarge),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(right: width * .03),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text(
+                              'Last Update ',
+                              style: theme.textTheme.labelMedium,
+                            ),
+                            Text(updatedAt, style: theme.textTheme.labelLarge),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  Padding(
+                    padding: EdgeInsets.only(right: width * .03),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(current.name, style: theme.textTheme.titleLarge),
-                        SizedBox(height: 1),
+                        Container(
+                          decoration: BoxDecoration(
+                            color: theme.primaryColor,
+                            borderRadius: BorderRadius.circular(3),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 10,
+                              vertical: 2,
+                            ),
+                            child: Text(
+                              current.category.toUpperCase(),
+                              style: theme.textTheme.labelLarge!.copyWith(
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                        ),
                         Text(
-                          current.description,
-                          style: theme.textTheme.labelLarge?.copyWith(
-                            color: theme.unselectedWidgetColor,
-                          ),
-                          maxLines: 3,
-                        ),
-                        SizedBox(height: 9),
-                        Padding(
-                          padding: EdgeInsets.only(right: width * .03),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Text(
-                                'Created ',
-                                style: theme.textTheme.labelMedium,
-                              ),
-                              Text(
-                                createdAt,
-                                style: theme.textTheme.labelLarge,
-                              ),
-                            ],
-                          ),
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(right: width * .03),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            crossAxisAlignment: CrossAxisAlignment.center,
-                            children: [
-                              Text(
-                                'Last Update ',
-                                style: theme.textTheme.labelMedium,
-                              ),
-                              Text(
-                                updatedAt,
-                                style: theme.textTheme.labelLarge,
-                              ),
-                            ],
-                          ),
+                          // "\$" + current.price.toString(),
+                          '\$${current.price}',
+                          style: theme.textTheme.labelLarge,
                         ),
                       ],
                     ),
-                    Padding(
-                      padding: EdgeInsets.only(right: width * .03),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Container(
-                            decoration: BoxDecoration(
-                              color: theme.primaryColor,
-                              borderRadius: BorderRadius.circular(3),
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 10,
-                                vertical: 2,
-                              ),
-                              child: Text(
-                                current.category.toUpperCase(),
-                                style: theme.textTheme.labelLarge!.copyWith(
-                                  color: Colors.white,
-                                ),
-                              ),
-                            ),
-                          ),
-                          Text(
-                            // "\$" + current.price.toString(),
-                            '\$${current.price}',
-                            style: theme.textTheme.labelLarge,
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
           ],
