@@ -17,6 +17,7 @@ class HomeRepository {
     // Connection checker
     final bool isInternetConnected = await di<InternetConnectionHelper>()
         .checkInternetConnection();
+    logger.d('Internet connected: $isInternetConnected');
 
     /// is DataBase Empty or Not
     final bool isDataBaseEmpty = await _dbProvider.isPostDataAvailable();
@@ -27,6 +28,9 @@ class HomeRepository {
         logger.d(
           'Fetch [Products] from the Server and cache it in the local DataBase',
         );
+
+        logger.d('API response: ${response.statusCode}');
+        logger.d('Response data: ${response.data}');
 
         /// Success
         if (response.statusCode == 200 &&
@@ -57,6 +61,7 @@ class HomeRepository {
           return const DataFailed("Unknown Error Happened!");
         }
       } catch (e) {
+        logger.e('API call failed: $e');
         if (!isDataBaseEmpty) {
           logger.d('Load [Products] from Local DataBase');
           final ProductsModel? localSourceResponse = await _dbProvider

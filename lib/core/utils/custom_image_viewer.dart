@@ -5,20 +5,19 @@ import 'package:flutter/material.dart';
 class CustomImageViewer {
   CustomImageViewer._();
 
-  static show(
-      {required BuildContext context,
-      required String url,
-      BoxFit? fit,
-      double? radius}) {
+  static show({
+    required BuildContext context,
+    required String url,
+    BoxFit? fit,
+    double? radius,
+  }) {
     return CachedNetworkImage(
       imageUrl: url,
       fit: fit ?? BoxFit.cover,
       imageBuilder: (context, imageProvider) => Container(
         decoration: BoxDecoration(
           color: Colors.transparent,
-          borderRadius: BorderRadius.circular(
-            radius ?? 12,
-          ),
+          borderRadius: BorderRadius.circular(radius ?? 12),
           image: DecorationImage(
             image: imageProvider,
             fit: fit ?? BoxFit.cover,
@@ -29,17 +28,10 @@ class CustomImageViewer {
       errorWidget: (context, url, error) => Container(
         width: double.infinity,
         decoration: BoxDecoration(
-          color: Theme.of(context).dialogBackgroundColor,
-          borderRadius: BorderRadius.circular(
-            radius ?? 12,
-          ),
+          color: Theme.of(context).dialogTheme.backgroundColor,
+          borderRadius: BorderRadius.circular(radius ?? 12),
         ),
-        child: const Center(
-          child: Icon(
-            Icons.image,
-            size: 60,
-          ),
-        ),
+        child: const Center(child: Icon(Icons.image, size: 60)),
       ),
     );
   }

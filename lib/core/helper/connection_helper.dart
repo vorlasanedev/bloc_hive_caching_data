@@ -1,20 +1,15 @@
-import 'dart:async';
-
-import 'package:connectivity_plus/connectivity_plus.dart';
+import 'dart:io';
 
 class InternetConnectionHelper {
-  // Function to check if the device is connected to the internet
   Future<bool> checkInternetConnection() async {
-    var connectivityResult = await Connectivity().checkConnectivity();
-
-    if (connectivityResult == ConnectivityResult.none) {
-      return false; // Not connected to any network
-    } else if (connectivityResult == ConnectivityResult.mobile ||
-        connectivityResult == ConnectivityResult.wifi ||
-        connectivityResult == ConnectivityResult.vpn) {
-      return true; // Connected to either mobile data or Wi-Fi
+    try {
+      final result = await InternetAddress.lookup('google.com');
+      if (result.isNotEmpty && result[0].rawAddress.isNotEmpty) {
+        return true; // Internet is reachable
+      }
+    } on SocketException catch (_) {
+      return false;
     }
-
-    return false; // Default to not connected
+    return false;
   }
 }

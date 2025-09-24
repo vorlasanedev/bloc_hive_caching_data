@@ -1,15 +1,12 @@
 import 'package:bloc_hive_caching_data/app.dart';
+import 'package:bloc_hive_caching_data/core/dependency_injection/di.dart';
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MainApp());
-}
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
 
-class MainApp extends StatelessWidget {
-  const MainApp({super.key});
+  /// waiting to inject the application dependencies
+  await setupDi();
 
-  @override
-  Widget build(BuildContext context) {
-    return App();
-  }
+  runApp(const App());
 }
