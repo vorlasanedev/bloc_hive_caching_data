@@ -34,6 +34,8 @@ dependencies:
   bloc: ^9.0.0
   equatable: ^2.0.7
   meta: ^1.16.0
+  # custom alert
+  alert_banner: ^1.0.1
   
 
 
